@@ -1,13 +1,15 @@
 <script lang="ts">
-  import Counter from '$lib/Counter.svelte';
+  import type { LetterGrid } from 'src/schema';
+  import { getGrid } from '$lib/api/grid';
+  import Puzzle from '$lib/Puzzle.svelte';
+
+  let grid: LetterGrid = getGrid();
 </script>
 
 <main>
-  <h1>Hello world!</h1>
+  <h1>Word Search</h1>
 
-  <Counter />
-
-  <p>Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte apps.</p>
+  <Puzzle grid={grid} />
 </main>
 
 <style>
@@ -26,13 +28,6 @@
     margin: 4rem auto;
     max-width: 14rem;
   }
-
-  p {
-    max-width: 14rem;
-    margin: 2rem auto;
-    line-height: 1.35;
-  }
-
   @media (min-width: 480px) {
     h1 {
       max-width: none;

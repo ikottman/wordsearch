@@ -1,0 +1,1 @@
+export type LetterGrid = Array<Array<string>>;
